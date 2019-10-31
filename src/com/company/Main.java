@@ -22,7 +22,7 @@ public class Main {
                             "n","o","p","q","r","s","t","u","v","w","x","y","z"};
         Random rand = new Random();
         int compLetterIndex = rand.nextInt(alphabet.length)+1;
-        System.out.println(alphabet[compLetterIndex]);
+        //System.out.println(alphabet[compLetterIndex]);
         System.out.println("Enter the letter: ");
         String userLine = scanner.nextLine();
         String userLineFirstSymbol = String.valueOf(userLine.charAt(0));
