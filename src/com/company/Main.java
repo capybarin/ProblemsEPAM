@@ -21,8 +21,8 @@ public class Main {
 	    String[] alphabet ={"a","b","c","d","e","f","g","h","i","j","k","l","m",
                             "n","o","p","q","r","s","t","u","v","w","x","y","z"};
         Random rand = new Random();
-        int compLetterIndex = rand.nextInt(alphabet.length)+1;
-        //System.out.println(alphabet[compLetterIndex]);
+        int compLetterIndex = rand.nextInt(alphabet.length);
+        System.out.println(alphabet[compLetterIndex]);
         System.out.println("Enter the letter: ");
         String userLine = scanner.nextLine();
         String userLineFirstSymbol = String.valueOf(userLine.charAt(0));
