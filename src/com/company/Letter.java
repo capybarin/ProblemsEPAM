@@ -1,6 +1,5 @@
 package com.company;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Letter {
 
@@ -43,7 +42,7 @@ public class Letter {
 
 
         //Task 3 "OddNumber"
-        int arraySize = rand.nextInt(50);
+        int arraySize = rand.nextInt(10)+1;
         int [] array = new int[arraySize];
         int max = array[0];
         System.out.print("Array: ");
@@ -57,7 +56,32 @@ public class Letter {
         }
         System.out.println("\nMax odd number is: "+max);
 
+        //Task 4 "IdenticalNumbers"
+        int [] arr1 = new int[arraySize];
+        int [] arr2 = new int[arraySize];
+        System.out.print("Array 1: ");
+        for (int i = 0; i < arr1.length; i++){
+            arr1[i]=rand.nextInt(arraySize);
+            System.out.print("["+arr1[i]+"] ");
+        }
+        System.out.print("\nArray 2: ");
+        for (int i = 0; i < arr2.length; i++) {
+            arr2[i]=rand.nextInt(arraySize);
+            System.out.print("[" + arr2[i] + "] ");
+        }
+        List<Integer> commonList = new ArrayList<Integer>();
+        for (int i = 0; i < arr1.length; i++) {
+            for (int j = 0; j < arr2.length; j++) {
+                if(arr1[i]==arr2[j])
+                    commonList.add(arr1[i]);
+            }
+        }
+        HashSet<Integer>set = new HashSet<Integer>(commonList);
+        System.out.print("\nCommon numbers: ");
+        for (Object ob: set)
+            System.out.print(ob+" ");
 
+        //Task
         scanner.close();
     }
 }
