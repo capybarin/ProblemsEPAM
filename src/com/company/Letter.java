@@ -41,6 +41,18 @@ public class Letter {
         System.out.println("Congratulations");
 
 
+        //Task 2
+        int k;
+        for(int i = Integer.MIN_VALUE+1;i < Integer.MAX_VALUE-1;i=i+2){
+            String bin = Integer.toBinaryString(i);
+            for( k=0; k < bin.length()/2; k++) {
+                if (bin.charAt(k) != bin.charAt(bin.length() - k - 1))
+                    break;
+            }
+            if(k == bin.length()/2){
+                System.out.println(i+" "+bin);}
+        }
+
         //Task 3 "OddNumber"
         int arraySize = rand.nextInt(10)+1;
         int [] array = new int[arraySize];
