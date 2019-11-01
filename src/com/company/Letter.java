@@ -81,7 +81,23 @@ public class Letter {
         for (Object ob: set)
             System.out.print(ob+" ");
 
-        //Task
+        //Task 6 "MostCommonSymbol"
+        int count[] = new int[256];
+        String str = "This is a test string";
+        for (int i = 0; i < str.length(); i++)
+            count[str.toLowerCase().charAt(i)]++;
+
+        int max_ = 0;
+        char result = ' ';
+        for (int i = 0; i < str.length(); i++) {
+            if (max < count[str.toLowerCase().charAt(i)]) {
+                max = count[str.toLowerCase().charAt(i)];
+                result = str.charAt(i);
+            }
+        }
+        System.out.println("\n\nMost common symbol is: "+result);
+
+
         scanner.close();
     }
 }
