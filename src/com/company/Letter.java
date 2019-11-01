@@ -2,7 +2,7 @@ package com.company;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Main {
+public class Letter {
 
     public static int getIndex(String[] array, String symbol){
         int index=0;
@@ -41,5 +41,23 @@ public class Main {
         }
         System.out.println("Congratulations");
 
+
+        //Task 3 "OddNumber"
+        int arraySize = rand.nextInt(50);
+        int [] array = new int[arraySize];
+        int max = array[0];
+        System.out.print("Array: ");
+        for (int i = 0; i < arraySize; i++) {
+            array[i]=rand.nextInt(arraySize);
+            System.out.print("["+array[i]+"] ");
+        }
+        for (int i = 0; i < arraySize; i++) {
+            if(array[i] > max && array[i]%2 == 1)
+                max=array[i];
+        }
+        System.out.println("\nMax odd number is: "+max);
+
+
+        scanner.close();
     }
 }
