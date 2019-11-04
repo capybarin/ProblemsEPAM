@@ -3,6 +3,19 @@ import java.util.*;
 
 public class Letter {
 
+    private static int[] toFormArray(int minVal, int maxVal, int size){
+        int[] array = new int[size];
+        for (int i = 0; i < size; i++)
+            array[i] = (int)(minVal + Math.random() * maxVal);
+        return array;
+    }
+
+    private static void print(int[] arr){
+        for (int i : arr)
+            System.out.print(i + "  ");
+        System.out.println();
+    }
+
     public static int getIndex(String[] array, String symbol){
         int index=0;
         for (int i = 0; i <array.length ; i++) {
@@ -17,19 +30,19 @@ public class Letter {
     public static void main(String[] args) {
         //Task 1 "Letter"
         Scanner scanner = new Scanner(System.in);
-	    String[] alphabet ={"a","b","c","d","e","f","g","h","i","j","k","l","m",
-                            "n","o","p","q","r","s","t","u","v","w","x","y","z"};
+        String[] alphabet = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
+                "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
         Random rand = new Random();
         int compLetterIndex = rand.nextInt(alphabet.length);
         System.out.println(alphabet[compLetterIndex]);
         System.out.println("Enter the letter: ");
         String userLine = scanner.nextLine();
         String userLineFirstSymbol = String.valueOf(userLine.charAt(0));
-        while(true) {
+        while (true) {
             if (alphabet[compLetterIndex].toLowerCase().equals(userLineFirstSymbol.toLowerCase()))
                 break;
             else {
-                int index = getIndex(alphabet,userLineFirstSymbol);
+                int index = getIndex(alphabet, userLineFirstSymbol);
                 if (index > compLetterIndex)
                     System.out.println("Too high!");
                 if (index < compLetterIndex)
@@ -54,46 +67,105 @@ public class Letter {
         }*/
 
         //Task 3 "OddNumber"
-        int arraySize = rand.nextInt(10)+1;
-        int [] array = new int[arraySize];
+        int arraySize = rand.nextInt(10) + 1;
+        int[] array = new int[arraySize];
         int max = array[0];
         System.out.print("Array: ");
         for (int i = 0; i < arraySize; i++) {
-            array[i]=rand.nextInt(arraySize);
-            System.out.print("["+array[i]+"] ");
+            array[i] = rand.nextInt(arraySize);
+            System.out.print("[" + array[i] + "] ");
         }
         for (int i = 0; i < arraySize; i++) {
-            if(array[i] > max && array[i]%2 == 1)
-                max=array[i];
+            if (array[i] > max && array[i] % 2 == 1)
+                max = array[i];
         }
-        System.out.println("\nMax odd number is: "+max);
+        System.out.println("\nMax odd number is: " + max);
 
         //Task 4 "IdenticalNumbers"
-        int [] arr1 = new int[arraySize];
-        int [] arr2 = new int[arraySize];
+        int[] arr1 = new int[arraySize];
+        int[] arr2 = new int[arraySize];
         System.out.print("Array 1: ");
-        for (int i = 0; i < arr1.length; i++){
-            arr1[i]=rand.nextInt(arraySize);
-            System.out.print("["+arr1[i]+"] ");
+        for (int i = 0; i < arr1.length; i++) {
+            arr1[i] = rand.nextInt(arraySize);
+            System.out.print("[" + arr1[i] + "] ");
         }
         System.out.print("\nArray 2: ");
         for (int i = 0; i < arr2.length; i++) {
-            arr2[i]=rand.nextInt(arraySize);
+            arr2[i] = rand.nextInt(arraySize);
             System.out.print("[" + arr2[i] + "] ");
         }
         List<Integer> commonList = new ArrayList<Integer>();
         for (int i = 0; i < arr1.length; i++) {
             for (int j = 0; j < arr2.length; j++) {
-                if(arr1[i]==arr2[j])
+                if (arr1[i] == arr2[j])
                     commonList.add(arr1[i]);
             }
         }
-        HashSet<Integer>set = new HashSet<Integer>(commonList);
+        HashSet<Integer> set = new HashSet<Integer>(commonList);
         System.out.print("\nCommon numbers: ");
-        for (Object ob: set)
-            System.out.print(ob+" ");
+        for (Object ob : set)
+            System.out.print(ob + " ");
+
+        System.out.println("\n\n\n");
+
+
 
         //Task 5 "PositiveNumbers"
+        final int SIZE_ARRAY = 5;
+        int[][] arr = new int[SIZE_ARRAY][SIZE_ARRAY];
+
+        for (int i = 0; i < SIZE_ARRAY; i++)
+            arr[i] = toFormArray(-5,15,SIZE_ARRAY);
+
+        System.out.println("\n Before: ");
+        for (int i = 0; i < SIZE_ARRAY; i++)
+            print(arr[i]);
+
+        int sizeNewArr[] = new int[SIZE_ARRAY];
+        int sizeMainArr = 0;
+        for (int i = 0; i < SIZE_ARRAY; i++) {
+            for (int j = 0; j < SIZE_ARRAY; j++) {
+                if(arr[i][j] > 0)
+                    sizeNewArr[i]++;
+            }
+            if(sizeNewArr[i] != 0)
+                sizeMainArr++;
+        }
+
+        int[][] newArr = new int[sizeMainArr][];
+
+        for (int i = 0, k = 0; (i < SIZE_ARRAY) && (k < sizeMainArr); i++) {
+            if(sizeNewArr[i] != 0){
+                newArr[k] = new int[sizeNewArr[i]];
+                int countNext = 0;
+                for (int j = 0; (j < SIZE_ARRAY) && (countNext < sizeNewArr[i]); j++) {
+                    if(arr[i][j] > 0){
+                        newArr[k][countNext] = arr[i][j];
+                        countNext++;
+                    }
+                }
+                k++;
+            }
+        }
+
+        System.out.println("\n After: ");
+
+        for (int i = 0; i < sizeMainArr; i++)
+            print(newArr[i]);
+
+        double maxArithmeticMean = Double.MIN_VALUE;
+        int lineNumberMaxArithmeticMean = -1;
+        for (int i = 0; i < sizeMainArr; i++) {
+            int sumThisRows = 0;
+            for (int j = 0; j < newArr[i].length; j++)
+                sumThisRows += newArr[i][j];
+            if((double)sumThisRows / (double)newArr[i].length > maxArithmeticMean){
+                maxArithmeticMean = (double)sumThisRows / newArr[i].length;
+                lineNumberMaxArithmeticMean = i;
+            }
+        }
+
+        System.out.println("\nLine number: " + (lineNumberMaxArithmeticMean + 1));
 
 
         //Task 6 "MostCommonSymbol"
@@ -131,6 +203,7 @@ public class Letter {
         }
 
         //Task 8 "Flowers"
+
         scanner.close();
     }
 }
