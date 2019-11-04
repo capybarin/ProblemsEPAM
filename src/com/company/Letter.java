@@ -41,8 +41,8 @@ public class Letter {
         System.out.println("Congratulations");
 
 
-        //Task 2
-        int k;
+        //Task 2 "Palindrome"
+        /*int k;
         for(int i = Integer.MIN_VALUE+1;i < Integer.MAX_VALUE-1;i=i+2){
             String bin = Integer.toBinaryString(i);
             for( k=0; k < bin.length()/2; k++) {
@@ -51,7 +51,7 @@ public class Letter {
             }
             if(k == bin.length()/2){
                 System.out.println(i+" "+bin);}
-        }
+        }*/
 
         //Task 3 "OddNumber"
         int arraySize = rand.nextInt(10)+1;
@@ -93,6 +93,9 @@ public class Letter {
         for (Object ob: set)
             System.out.print(ob+" ");
 
+        //Task 5 "PositiveNumbers"
+
+
         //Task 6 "MostCommonSymbol"
         int count[] = new int[256];
         String str = "This is a test string";
@@ -108,8 +111,26 @@ public class Letter {
             }
         }
         System.out.println("\n\nMost common symbol is: "+result);
+        System.out.println("\n\n\n");
 
 
+        //Task 7 "Wine Catalog"
+        ArrayList<WineCatalog> listOfWine = new ArrayList<>();
+        WineCatalog wine1 = new WineCatalog("Test1","Ukraine","16.11.06");
+        WineCatalog wine2 = new WineCatalog("Test2","Ukraine","15.04.02");
+        WineCatalog wine3 = new WineCatalog("Test3","Ukraine","07.11.15");
+        WineCatalog wine4 = new WineCatalog("Test4","Ukraine","12.06.06");
+        WineCatalog wine5 = new WineCatalog("Test5","Ukraine","15.12.01");
+        listOfWine.add(wine1);
+        listOfWine.add(wine2);
+        listOfWine.add(wine3);
+        listOfWine.add(wine4);
+        listOfWine.add(wine5);
+        for (WineCatalog wine:listOfWine) {
+            System.out.println("Name: "+wine.getWineName()+"\nCountry: "+wine.getCountry()+"\nFull years: "+wine.getYear("19.11.04"));
+        }
+
+        //Task 8 "Flowers"
         scanner.close();
     }
 }
