@@ -26,6 +26,9 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RunDashboard">
@@ -42,7 +45,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.Letter" />
+      <option name="MAIN_CLASS_NAME" value="com.company.Main" />
       <module name="epam_l1" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
@@ -73,6 +76,8 @@
       <workItem from="1572604064646" duration="75000" />
       <workItem from="1572621295412" duration="408000" />
       <workItem from="1572638870685" duration="166000" />
+      <workItem from="1572957805145" duration="183000" />
+      <workItem from="1573074020314" duration="99000" />
     </task>
     <servers />
   </component>

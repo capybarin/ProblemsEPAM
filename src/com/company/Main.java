@@ -1,7 +1,7 @@
 package com.company;
 import java.util.*;
 
-public class Letter {
+public class Main {
 
     private static int[] toFormArray(int minVal, int maxVal, int size){
         int[] array = new int[size];
@@ -55,7 +55,8 @@ public class Letter {
 
 
         //Task 2 "Palindrome"
-        /*int k;
+
+        int k;
         for(int i = Integer.MIN_VALUE+1;i < Integer.MAX_VALUE-1;i=i+2){
             String bin = Integer.toBinaryString(i);
             for( k=0; k < bin.length()/2; k++) {
@@ -64,7 +65,7 @@ public class Letter {
             }
             if(k == bin.length()/2){
                 System.out.println(i+" "+bin);}
-        }*/
+        }
 
         //Task 3 "OddNumber"
         int arraySize = rand.nextInt(10) + 1;
@@ -134,17 +135,17 @@ public class Letter {
 
         int[][] newArr = new int[sizeMainArr][];
 
-        for (int i = 0, k = 0; (i < SIZE_ARRAY) && (k < sizeMainArr); i++) {
+        for (int i = 0, m = 0; (i < SIZE_ARRAY) && (m < sizeMainArr); i++) {
             if(sizeNewArr[i] != 0){
-                newArr[k] = new int[sizeNewArr[i]];
+                newArr[m] = new int[sizeNewArr[i]];
                 int countNext = 0;
                 for (int j = 0; (j < SIZE_ARRAY) && (countNext < sizeNewArr[i]); j++) {
                     if(arr[i][j] > 0){
-                        newArr[k][countNext] = arr[i][j];
+                        newArr[m][countNext] = arr[i][j];
                         countNext++;
                     }
                 }
-                k++;
+                m++;
             }
         }
 
